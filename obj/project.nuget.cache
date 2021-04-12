@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zeX/uNYHQDgEbRn9Xco7yNsM0Avd0iNArkRAU/okPDPWpWmSMXRdavPRwPkYKpeZMA9lpaRT9e+tnYJ7cAB0oA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Aorus\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Prefixes\\Prefixes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aorus\\.nuget\\packages\\tmodloader.codeassist\\0.1.2\\tmodloader.codeassist.0.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
