@@ -1,3 +1,3 @@
 displayName = Bolb.Prefixes
 author = 0xB01b
-version = 0.1
+version = 1.0.0
