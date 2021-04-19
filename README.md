@@ -36,9 +36,9 @@ public override float RollChance(Item item) => 2f;
 ```cs
 public override float RollChance(Item item)
 {
-    if(item.)
+    if(item.ID = ItemID.Starwrath)
     {
-    
+    return 8f;
     }
     return 1f;
 }
@@ -59,16 +59,20 @@ public override bool CanRoll(Item item) => true;
 ```
 
 ```cs
-//Check for a certain item type
+//Check for a certain item
 public override bool CanRoll(Item item)
 {
-    if(item.)
+    if(item.ID == ItemID.Meowmere)
     {
-    
+    return true;
     }
     return false;
 }
 ```
+
+## SetDefaults
+This is the method where you can set your item's display name, if you do not want it to be the same as the name of your class(eg: maybe you want a space in it, or an apostrophe).
+
 
 ## Autoload()
 This method actually allows to to create mutliple prefixes in the same class, say we had a specific type of prefix like something for size: "Small", "Medium", "Big"
