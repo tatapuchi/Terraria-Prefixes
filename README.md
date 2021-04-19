@@ -11,7 +11,7 @@ Simply having a class that extends `ModPrefix` will create a default implementat
 However the name of the prefix will simply be the name of your class and it will not modify the stats at all.
 
 We can change the name of the prefix, and use it to modify shooting speed, damage, size, etc of an item.
-To see a very basic implementation of a Prefix, look at Doge.cs
+To see a very basic implementation of a Prefix, look at **`Doge.cs`**
 
 ## Prefix stats
 The primary purpose of prefixes are to change the stats of an item, and also its value(Items with certain prefixes may cost more than items with other prefixes).
@@ -19,3 +19,7 @@ By default, the value multiplier(how much more money it will cost for selling or
 
 Setting the stat multipliers for an item with the prefix is done in the appropriately named `SetStats()` method, just override and set stat values.
 Note that the `PrefixCatgeory` enum (Which is set to `PrefixCategory.Custom` by default) changes your ability to set the stat multipliers, for example, if you set the enum to say PrefixCategory.Melee, then you will be able to change the scale multiplier (to increase or decrease the size of a weapon) or if you set it to PrefixCategory.Ranged, you would be able to change the shoot speed multiplier of that item.
+
+## Autoload()
+This method actually allows to to create mutliple prefixes in the same class, say we had a specific type of prefix like something for size: "Small", "Medium", "Big"
+All these methods would do is the scale of the item, and so, instead of having one class for each, we can group them in one class that defines all three prefixes, look to **`Metric.cs`** for an example on this.
