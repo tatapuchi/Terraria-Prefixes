@@ -20,7 +20,7 @@ By default, the value multiplier(how much more money it will cost for selling or
 Setting the stat multipliers for an item with the prefix is done in the appropriately named `SetStats()` method, just override and set stat values.
 Note that the `PrefixCatgeory` enum (Which is set to `PrefixCategory.Custom` by default) changes your ability to set the stat multipliers, for example, if you set the enum to say PrefixCategory.Melee, then you will be able to change the scale multiplier (to increase or decrease the size of a weapon) or if you set it to PrefixCategory.Ranged, you would be able to change the shoot speed multiplier of that item.
 
-# Methods
+# Main Methods
 
 ### RollChance()
 This should be easy to understand, it is just the chance that your prefix will be rolled compared to a vanilla prefix.  
@@ -88,7 +88,7 @@ public override void SetDefaults()
 ---
 
 ### SetStats
-This is the method where you set the stats, it takes in float values that you are meant to edit, and thats it.
+This is the method where you set the stat multipliers, it takes in float values that you are meant to edit, and thats it.
 
 ```cs
 //Basic implementation to increase damage
@@ -99,6 +99,28 @@ public override void SetStats(ref float damageMult, ref float knockbackMult, ref
 }
 ```
 
+---
+
+### ModifyValue
+This is the method where you can set the price value multipliers of your weapon, if not overriden, then the value will be scaled with the stat multipliers.
+
+```cs
+//Basic implementation to make it cost less than usual
+public override void ModifyValue(ref float valueMult)
+{
+   //Set to half base value 
+    valueMult = 0.5f;
+}
+```
+
+---
+
 ### Autoload()
 This method actually allows to to create mutliple prefixes in the same class, say we had a specific type of prefix like something for size: "Small", "Medium", "Big"
 All these methods would do is the scale of the item, and so, instead of having one class for each, we can group them in one class that defines all three prefixes, look to **`Metric.cs`** for an example on this.
+
+
+# Other
+
+### PrefixCategory
+This enum serves to specify what stat multipliers can be set for an item, as an example the shoot speed multiplier is only able to be set on ranged weapons, as melee weapons don't have a shoot speed.
