@@ -22,13 +22,52 @@ Note that the `PrefixCatgeory` enum (Which is set to `PrefixCategory.Custom` by 
 
 # Methods
 
+## RollChance()
+This should be easy to understand, it is just the chance that your prefix will be rolled compared to a vanilla prefix.  
+The method takes in the item to be rolled, so you can change the roll chance depending on the item.  
+**The default value is 1f, which is the same as a vanilla prefix**  
+**A value of 0f can still be rolled**
+
+```cs
+//Default implementation with a roll chance twice that of a vanilla prefix
+public override float RollChance(Item item) => 2f;
+```
+
+```cs
+public override float RollChance(Item item)
+{
+    if(item.)
+    {
+    
+    }
+    return 1f;
+}
+
+```
+
+
+For testing I generally set the chance to be really high so that I can easily reforge and get it.
+
 ## CanRoll()
-This method allows us to set whether a prefix can be rolled or not, obviously this may seem stupid because we want our prefix to be rolled, but if you want to implement a check to see whether our weapon is the correct type or not we would do it here. For example, we have a prefix called "deflated" for ball type weapons, we do not want this appearing on all throwing weapons because a "deflated" throwing knife doesn't even make sense.
+This method allows us to set whether a prefix can be rolled or not, obviously this may seem stupid because we want our prefix to be rolled, but if you want to implement a check to see whether our weapon is the correct type or not we would do it here. For example, we have a prefix called "deflated" for ball type weapons, we do not want this appearing on all throwing weapons because a "deflated" throwing knife doesn't even make sense.  
+This method takes in the item to be rolled, so we can use that to check for a certain item type.
 **By default CanRoll() returns true depending on the RollChance()**
 
 ```cs
 //Default implementation (Not required as it is true by default)
-public override bool CanRoll() => true;
+public override bool CanRoll(Item item) => true;
+```
+
+```cs
+//Check for a certain item type
+public override bool CanRoll(Item item)
+{
+    if(item.)
+    {
+    
+    }
+    return false;
+}
 ```
 
 ## Autoload()
