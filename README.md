@@ -73,6 +73,15 @@ public override bool CanRoll(Item item)
 ## SetDefaults
 This is the method where you can set your item's display name, if you do not want it to be the same as the name of your class(eg: maybe you want a space in it, or an apostrophe).
 
+```cs
+//The display name of the prefix is now "Ultimate", as in "Ultimate Sunfury", "Ultimate Daybreak", etc.
+
+public override void SetDefaults()
+{
+    DisplayName.SetDefault("Ultimate");
+}
+```
+
 
 ## Autoload()
 This method actually allows to to create mutliple prefixes in the same class, say we had a specific type of prefix like something for size: "Small", "Medium", "Big"
