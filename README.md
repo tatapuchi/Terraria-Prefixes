@@ -22,7 +22,7 @@ Note that the `PrefixCatgeory` enum (Which is set to `PrefixCategory.Custom` by 
 
 # Methods
 
-## RollChance()
+### RollChance()
 This should be easy to understand, it is just the chance that your prefix will be rolled compared to a vanilla prefix.  
 The method takes in the item to be rolled, so you can change the roll chance depending on the item.  
 **The default value is 1f, which is the same as a vanilla prefix**  
@@ -45,10 +45,11 @@ public override float RollChance(Item item)
 
 ```
 
-
 For testing I generally set the chance to be really high so that I can easily reforge and get it.
 
-## CanRoll()
+---
+
+### CanRoll()
 This method allows us to set whether a prefix can be rolled or not, obviously this may seem stupid because we want our prefix to be rolled, but if you want to implement a check to see whether our weapon is the correct type or not we would do it here. For example, we have a prefix called "deflated" for ball type weapons, we do not want this appearing on all throwing weapons because a "deflated" throwing knife doesn't even make sense.  
 This method takes in the item to be rolled, so we can use that to check for a certain item type.
 **By default CanRoll() returns true depending on the RollChance()**
@@ -70,7 +71,9 @@ public override bool CanRoll(Item item)
 }
 ```
 
-## SetDefaults
+---
+
+### SetDefaults
 This is the method where you can set your item's display name, if you do not want it to be the same as the name of your class(eg: maybe you want a space in it, or an apostrophe).
 
 ```cs
@@ -82,7 +85,20 @@ public override void SetDefaults()
 }
 ```
 
+---
 
-## Autoload()
+### SetStats
+This is the method where you set the stats, it takes in float values that you are meant to edit, and thats it.
+
+```cs
+//Basic implementation to increase damage
+public override void SetStats(ref float damageMult, ref float knockbackMult, ref float useTimeMult, ref float scaleMult, ref float shootSpeedMult, ref float manaMult, ref int critBonus)
+{
+    //Does 3 times as much damage as the regular un-prefixed weapon 
+    damageMult = 3f;
+}
+```
+
+### Autoload()
 This method actually allows to to create mutliple prefixes in the same class, say we had a specific type of prefix like something for size: "Small", "Medium", "Big"
 All these methods would do is the scale of the item, and so, instead of having one class for each, we can group them in one class that defines all three prefixes, look to **`Metric.cs`** for an example on this.
